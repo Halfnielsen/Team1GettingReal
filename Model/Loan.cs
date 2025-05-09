@@ -24,6 +24,10 @@ namespace GettingReal.Model
             ReturnDate = returnDate;
         }
 
+        public override string ToString()
+        {
+            return $"Loan ID: {LoanId}, Item ID: {ItemId}, Loaner: {Loaner}, Loan Date: {LoanDate}, Return Date: {ReturnDate?.ToString("yyyy-MM-dd") ?? "Not Returned"}";
+        }
 
     }
 }
