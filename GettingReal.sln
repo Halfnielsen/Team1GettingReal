@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingReal", "GettingReal.csproj", "{A72299E6-D367-48F6-AF8B-868FA0C66018}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingReal", "GettingReal.csproj", "{365574F8-1E92-46B5-A90B-5216DB2C3740}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A72299E6-D367-48F6-AF8B-868FA0C66018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A72299E6-D367-48F6-AF8B-868FA0C66018}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A72299E6-D367-48F6-AF8B-868FA0C66018}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A72299E6-D367-48F6-AF8B-868FA0C66018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{365574F8-1E92-46B5-A90B-5216DB2C3740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{365574F8-1E92-46B5-A90B-5216DB2C3740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{365574F8-1E92-46B5-A90B-5216DB2C3740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{365574F8-1E92-46B5-A90B-5216DB2C3740}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {648B3CCE-DD4C-4A95-BD87-22C8C4C06EB0}
+		SolutionGuid = {DC2C6CDF-98C4-44DB-B40E-856080E8EA97}
 	EndGlobalSection
 EndGlobal
