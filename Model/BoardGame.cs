@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GettingReal.Model
 {
-    internal class BoardGame
+    public class BoardGame : Item
     {
+        public string Edition { get; set; }
+        public int MinPlayers { get; set; }
+        public int MaxPlayers { get; set; }
+
     }
 }

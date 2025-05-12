@@ -3,10 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace GettingReal.Model
 {
-    internal class LiveEquipment
+    public class LiveEquipment : Item
     {
+        public EquipmentType Type { get; set; }
+        public string Owner { get; set; }
+
+        /*public LiveEquipment(int itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, EquipmentType type, string owner)
+    : base(itemId, name, condition, approvalRequirement, storageStatus)
+        {
+            Type = type;
+            Owner = owner;
+        }*/
+    }
+
+    public enum EquipmentType
+    {
+        Sword,
+        Shield,
+        Other
     }
 }
