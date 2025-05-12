@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace GettingReal.Model
 {
-    internal class Book
+    public class Book : Item
     {
+        public string Author { get; set; }
+        public string Edition { get; set; }
+        public string System { get; set; }
     }
 }
