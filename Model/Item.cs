@@ -14,8 +14,8 @@ namespace GettingReal.Model
         public Condition Condition { get; set; }
         public NeedsApproval ApprovalRequirement { get; set; }
         public InWarehouse StorageStatus { get; set; }
-
-        /*
+        
+              
         
         public List<Loan> Loan { get; set; } = new();
 
@@ -24,8 +24,14 @@ namespace GettingReal.Model
             ItemId = itemId;
         }
 
-        */
+        public Item()
+        {
+        }
+
+
     }
+    
+    //ændre til dansk enum
 
     public enum Condition
     {
