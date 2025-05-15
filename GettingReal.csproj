@@ -8,4 +8,11 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="GettingRealTests\**" />
+    <EmbeddedResource Remove="GettingRealTests\**" />
+    <None Remove="GettingRealTests\**" />
+    <Page Remove="GettingRealTests\**" />
+  </ItemGroup>
+
 </Project>
