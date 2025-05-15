@@ -11,12 +11,15 @@ namespace GettingReal.Model.Interfaces
     {
         public void AddItem(Item item);
 
-        public void EditItem(Item item);
+        public void EditItem(Item editItem);
 
         public void DeleteItem(Item item);
 
-        public void GetById(int itemId);
+        //Ændrede void til return item.
+        public Item GetById(int itemId);
         public List<Item> GetAllItems();
-        public List<Loan> GetLoanHistory();
+
+        //Ændrede parameter til item
+        public List<Loan> GetLoanHistory(Item item);
     }
 }
