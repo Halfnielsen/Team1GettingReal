@@ -34,12 +34,12 @@ namespace GettingReal.Model.Repositories
             throw new NotImplementedException();
         }
 
-        public void GetById(int itemId)
+        public Item GetById(int itemId)
         {
             throw new NotImplementedException();
         }
 
-        public List<Loan> GetLoanHistory()
+        public List<Loan> GetLoanHistory(Item item)
         {
             throw new NotImplementedException();
         }
