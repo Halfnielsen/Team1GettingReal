@@ -16,7 +16,7 @@ namespace GettingReal.Model.Interfaces
         public void DeleteItem(Item item);
 
         //Ændrede void til return item.
-        public Item GetById(int itemId);
+        public Item GetById(string itemId);
         public List<Item> GetAllItems();
 
         //Ændrede parameter til item
