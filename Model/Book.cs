@@ -28,7 +28,8 @@ namespace GettingReal.Model
             
         }
 
-        //Didn't we agree to remove this?
+        //Didn't end up using this constructor
+
         //public Book(string author, string edition, string system)
         //: base(itemId: 0, "", Condition.New, NeedsApproval.No, InWarehouse.Available)
         //{
@@ -36,7 +37,7 @@ namespace GettingReal.Model
         //    Edition = edition;
         //    System = system;
         //}
-        
+
         public override string ToString()
         {
             return $" Book,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{System},{Edition}";

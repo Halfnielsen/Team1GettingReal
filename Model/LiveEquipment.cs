@@ -24,7 +24,8 @@ namespace GettingReal.Model
             Owner = owner;
         }
 
-        //Didn't we agree to remove this?
+        //Didn't end up using this constructor
+
         //public LiveEquipment(EquipmentType type, string owner)
         //    : base(itemId: "0", "", Condition.Ny, NeedsApproval.Nej, InWarehouse.Udlånt)
         //{
