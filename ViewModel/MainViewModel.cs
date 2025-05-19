@@ -61,7 +61,7 @@ namespace GettingReal.ViewModel
             AddItemCommand = new RelayCommand(p => AddItem(p as Item));
             EditItemCommand = new RelayCommand(p => EditItem(p as Item), p => p is Item);
             DeleteItemCommand = new RelayCommand(p => DeleteItem(p as Item), p => p is Item);
-            CreateLoanCommand = new RelayCommand(_ => CreateLoan(), _ => SelectedItem is { StorageStatus: InWarehouse.Available });
+            CreateLoanCommand = new RelayCommand(_ => CreateLoan(), _ => SelectedItem is { StorageStatus: InWarehouse.Hjemme });
             CompleteLoanCommand = new RelayCommand(_ => CompleteLoan(), _ => SelectedLoan != null && SelectedLoan.ReturnDate == null);
             RefreshCommand = new RelayCommand(_ => Refresh());
         }
