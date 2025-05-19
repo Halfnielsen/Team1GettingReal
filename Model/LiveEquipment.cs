@@ -17,7 +17,7 @@ namespace GettingReal.Model
         {
         }
 
-        public LiveEquipment(string itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, EquipmentType type, string owner)
+        public LiveEquipment(int? itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, EquipmentType type, string owner)
             : base(itemId, name, condition, approvalRequirement, storageStatus)
         {
             Type = type;
@@ -31,10 +31,7 @@ namespace GettingReal.Model
         //    Type = type;
         //    Owner = owner;
         //}
-        public override string GetPrefix()
-        {
-            return "LU";
-        }
+       
         public override string ToString()
         {
             return $"{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{Type},{Owner}";
@@ -45,7 +42,7 @@ namespace GettingReal.Model
             string[] parts = input.Split(',');
 
             return new LiveEquipment(
-                itemId: parts[0],
+                itemId: Int32.Parse(parts[0]),
                 name: parts[1],
                 condition: Enum.Parse<Condition>(parts[2]),
                 approvalRequirement: Enum.Parse<NeedsApproval>(parts[3]),
