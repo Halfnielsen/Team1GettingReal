@@ -5,23 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingReal"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000"
+        Background="BlueViolet">
     <Grid Background="#464D56">
-        <Label HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Height="82" Width="544" FontSize="50" Foreground="OrangeRed">
-            <Label Content="Sejt Fønix Lager Her! 🐦‍🔥" HorizontalAlignment="Left" VerticalAlignment="Top" Height="82" Width="544" FontSize="50">
-                <Label.Foreground>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFCBEF2E"/>
-                        <GradientStop Color="#FFEF2E2E" Offset="0.699"/>
-                    </LinearGradientBrush>
-                </Label.Foreground>
-            </Label>
-        </Label>
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="True">
+            <Grid Background="#000000" DockPanel.Dock="Top" Height="70">
+                <Label Margin="0,0,0,0" Content="Lager System" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontFamily="Sitka Heading" FontWeight="Bold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center">
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FFB35F24" Offset="0"/>
+                            <GradientStop Color="#FF9C2525" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Image Height="70" Width="130" Source="/View/Skærmbillede 2025-05-19 131733.png" HorizontalAlignment="left" VerticalAlignment="Stretch"/>
+                <Label Content="Søg" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Background="FloralWhite" Margin="0,0,105,0"/>
+                <TextBox HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="100" Margin="0,0,5,0"/>
+            </Grid>
+            <StackPanel Background="Green" Margin="0,0,0,0" HorizontalAlignment="Left"  Width="100" >
+                <Button Content="Alle" Height="30" Margin="0,80,0,10"/>
+                <Button Content="Brætspil" Height="30" Margin="0,0,0,10"/>
+                <Button Content="Bøger" Height="30" Margin="0,0,0,10"/>
+                <Button Content="Live-Udstyr" Height="30" Margin="0,0,0,10"/>
 
 
+
+            </StackPanel>
+            <TextBox TextWrapping="Wrap" Text="Ikke færdigt udseende :D Har bare fået sat vores ting lidt op, så jeg kan arbejde videre med det i morgen." Width="150" VerticalAlignment="Center"/>
+
+
+
+
+
+
+        </DockPanel>
+    </Grid>
 </Window>

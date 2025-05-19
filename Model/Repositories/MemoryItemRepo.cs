@@ -16,27 +16,27 @@ namespace GettingReal.Model.Repositories
         {
             //Redigere evt. ID, når IdGenerator er klar. :)
             //Sample Book 1
-            Book book1 = new Book(1234, "Dune", Condition.Used, NeedsApproval.Yes, InWarehouse.Available, "Frank Herbert", "1st","Literature");
+            Book book1 = new Book(1234, "Dune", Condition.Brugt, NeedsApproval.Ja, InWarehouse.Hjemme, "1st","Literature");
             items.Add(book1);
 
             //Sample Book 2
-            Book book2 = new Book(42069, "Players Handbook", Condition.New, NeedsApproval.Yes, InWarehouse.Available, "WoTC", "5th", "DnD");
+            Book book2 = new Book(42069, "Players Handbook", Condition.Brugt, NeedsApproval.Ja, InWarehouse.Hjemme, "5th", "DnD");
             items.Add(book2);
 
             //Sample Game 1
-            BoardGame game1 = new BoardGame(666, "Betrayal At House On The Hill", Condition.Bad, NeedsApproval.Yes, InWarehouse.NotAvailable, "4th", 2, 8);
+            BoardGame game1 = new BoardGame(666, "Betrayal At House On The Hill", Condition.Ødelagt, NeedsApproval.Ja, InWarehouse.Udlånt, "4th", 2, 8);
             items.Add(game1);
 
             //Sample Game 2
-            BoardGame game2 = new BoardGame(999, "Coup", Condition.Used, NeedsApproval.No, InWarehouse.Available, "2nd", 3, 6);
+            BoardGame game2 = new BoardGame(999, "Coup", Condition.Brugt, NeedsApproval.Nej, InWarehouse.Hjemme, "2nd", 3, 6);
             items.Add(game2);
 
             //Sample Equipment 1
-            LiveEquipment equipment1 = new LiveEquipment(360, "Chain Mail", Condition.Used, NeedsApproval.Yes, InWarehouse.NotAvailable, EquipmentType.Other, "FiR");
+            LiveEquipment equipment1 = new LiveEquipment(360, "Chain Mail", Condition.Brugt, NeedsApproval.Ja, InWarehouse.Udlånt, EquipmentType.Kostume, "FiR");
             items.Add(equipment1);
 
             //Sample Equipment 2
-            LiveEquipment equipment2 = new LiveEquipment(920, "Gladius", Condition.New, NeedsApproval.Yes, InWarehouse.Available, EquipmentType.Sword, "Non-FiR");
+            LiveEquipment equipment2 = new LiveEquipment(920, "Gladius", Condition.Ny, NeedsApproval.Ja, InWarehouse.Hjemme, EquipmentType.Våben, "Non-FiR");
             items.Add(equipment2);
         }
 
@@ -99,7 +99,7 @@ namespace GettingReal.Model.Repositories
         }
 
         //Get item by ID
-        public Item GetById(string itemId) //I changed int to string here :)
+        public Item GetById(int itemId) //I changed int to string here :)
         {
             foreach(Item item in items)
             {
