@@ -17,6 +17,11 @@
                 </Label.Foreground>
             </Label>
         </Label>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-    </Grid>
+
 </Window>
