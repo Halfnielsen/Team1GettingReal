@@ -10,33 +10,61 @@ namespace GettingReal.Model
     public class LiveEquipment : Item
     {
         public EquipmentType Type { get; set; }
-        public string Owner { get; set; }
+        public string Owner { get; set; } 
 
 
         public LiveEquipment()
         {
         }
 
-        public LiveEquipment(int itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, EquipmentType type, string owner)
+        public LiveEquipment(string itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, EquipmentType type, string owner)
             : base(itemId, name, condition, approvalRequirement, storageStatus)
         {
             Type = type;
             Owner = owner;
         }
 
-        public LiveEquipment(EquipmentType type, string owner)
-            : base(itemId: 0, "", Condition.New, NeedsApproval.No, InWarehouse.Available)
+        //Didn't we agree to remove this?
+        //public LiveEquipment(EquipmentType type, string owner)
+        //    : base(itemId: "0", "", Condition.Ny, NeedsApproval.Nej, InWarehouse.Udlånt)
+        //{
+        //    Type = type;
+        //    Owner = owner;
+        //}
+        public override string GetPrefix()
         {
-            Type = type;
-            Owner = owner;
+            return "LU";
         }
-    
+        public override string ToString()
+        {
+            return $"{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{Type},{Owner}";
+        }
+
+        public override Item FromString(string input)
+        {
+            string[] parts = input.Split(',');
+
+            return new LiveEquipment(
+                itemId: parts[0],
+                name: parts[1],
+                condition: Enum.Parse<Condition>(parts[2]),
+                approvalRequirement: Enum.Parse<NeedsApproval>(parts[3]),
+                storageStatus: Enum.Parse<InWarehouse>(parts[4]),
+                type: Enum.Parse<EquipmentType>(parts[4]),
+                owner: parts[5]
+                
+            );
+
+        }
     }
 
-    public enum EquipmentType
+    public enum EquipmentType // Took the ones from MVP :)
     {
-        Sword,
-        Shield,
-        Other
+        Lejr,
+        Kostume,
+        Våben,
+        Pynt,
+        Accessories, //Should this be "Tilbehør" instead? (I just took the exact name from the mvp
+        Spisegrej
     }
 }

@@ -12,23 +12,48 @@ namespace GettingReal.Model
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
 
-        public BoardGame()
+        public BoardGame() // We MIGHT not need an empty constuctor anylonger, since I figured out how to make the FromString work with a "filled out" constuctor :D
         {
         }   
-        public BoardGame(int itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, string edition, int minPlayers, int maxPlayers)
+        public BoardGame(string itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, string edition, int minPlayers, int maxPlayers)
             : base(itemId, name, condition, approvalRequirement, storageStatus)
         {
             Edition = edition;
             MinPlayers = minPlayers;
             MaxPlayers = maxPlayers;
         }
-        public BoardGame(string edition, int minPlayers, int maxPlayers)
-            : base(itemId: 0, "", Condition.New, NeedsApproval.No, InWarehouse.Available)
+        //Didn't we agree to remove this?
+        //public BoardGame(string edition, int minPlayers, int maxPlayers)
+        //    : base(itemId: 0, "", Condition.New, NeedsApproval.No, InWarehouse.Available)
+        //{
+        //    Edition = edition;
+        //    MinPlayers = minPlayers;
+        //    MaxPlayers = maxPlayers;
+        //}
+        public override string GetPrefix()
         {
-            Edition = edition;
-            MinPlayers = minPlayers;
-            MaxPlayers = maxPlayers;
+            return "BR";
         }
-        
+        public override string ToString()
+        {
+            return $"BoardGame,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus}, {Edition}, {MinPlayers}, {MaxPlayers}";
+        }
+
+        public override Item FromString(string input)
+        {
+            string[] parts = input.Split(',');
+
+            return new BoardGame(
+                itemId: parts[0],
+                name: parts[1],
+                condition: Enum.Parse<Condition>(parts[2]),
+                approvalRequirement: Enum.Parse<NeedsApproval>(parts[3]),
+                storageStatus: Enum.Parse<InWarehouse>(parts[4]),
+                edition: parts[5],
+                minPlayers: int.Parse(parts[6]),
+                maxPlayers: int.Parse(parts[7])
+            );
+
+        }
     }
 }

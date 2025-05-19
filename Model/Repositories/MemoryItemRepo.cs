@@ -99,7 +99,7 @@ namespace GettingReal.Model.Repositories
         }
 
         //Get item by ID
-        public Item GetById(int itemId)
+        public Item GetById(string itemId) //I changed int to string here :)
         {
             foreach(Item item in items)
             {
