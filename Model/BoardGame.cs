@@ -22,7 +22,9 @@ namespace GettingReal.Model
             MinPlayers = minPlayers;
             MaxPlayers = maxPlayers;
         }
-        //Didn't we agree to remove this?
+
+        //Didn't end up using this constructor
+
         //public BoardGame(string edition, int minPlayers, int maxPlayers)
         //    : base(itemId: 0, "", Condition.New, NeedsApproval.No, InWarehouse.Available)
         //{
@@ -30,7 +32,7 @@ namespace GettingReal.Model
         //    MinPlayers = minPlayers;
         //    MaxPlayers = maxPlayers;
         //}
-       
+
         public override string ToString()
         {
             return $"BoardGame,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus}, {Edition}, {MinPlayers}, {MaxPlayers}";

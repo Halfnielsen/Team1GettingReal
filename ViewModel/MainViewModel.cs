@@ -14,10 +14,7 @@ namespace GettingReal.ViewModel
     {
         // Repositories – lige til at udskifte med fil/database senere
         private readonly MemoryItemRepo _itemRepo = new();
-        private readonly LoanRepo _loanRepo = new();
-
-        //Dummy book for testing
-        public Book NewBook { get; set; } = new();
+        private readonly LoanRepo _loanRepo = new();       
 
         public ObservableCollection<Item> Items { get; }
         public ObservableCollection<Loan> Loans { get; }
@@ -59,9 +56,9 @@ namespace GettingReal.ViewModel
 
             // Initialiser kommandoer
 
-            AddItemCommand = new RelayCommand(_ => AddDummyBook());
+            
 
-            //AddItemCommand = new RelayCommand(p => AddItem(p as Item));
+            AddItemCommand = new RelayCommand(p => AddItem(p as Item));
             EditItemCommand = new RelayCommand(p => EditItem(p as Item), p => p is Item);
             DeleteItemCommand = new RelayCommand(p => DeleteItem(p as Item), p => p is Item);
             CreateLoanCommand = new RelayCommand(_ => CreateLoan(), _ => SelectedItem is { StorageStatus: InWarehouse.Available });
@@ -70,23 +67,7 @@ namespace GettingReal.ViewModel
         }
 
         /* ---------- CRUD- og lånelogik ---------- */
-        private void AddDummyBook()
-        {
-            var id = Items.Any() ? Items.Max(i => i.ItemId) + 1 : 1;
-
-            var book = new Book(
-                itemId: id,
-                name: $"Testbog #{id}",
-                condition: Condition.New,
-                approvalRequirement: NeedsApproval.No,
-                storageStatus: InWarehouse.Available,
-                author: "Ukendt",
-                edition: "1.",
-                system: "D&D");
-
-            _itemRepo.AddItem(book);
-            Items.Add(book);
-        }
+     
         private void AddItem(Item? item)
         {
             if (item == null) return;
@@ -126,7 +107,7 @@ namespace GettingReal.ViewModel
             _loanRepo.CreateLoan(loan);
             Loans.Add(loan);
 
-            SelectedItem.StorageStatus = InWarehouse.NotAvailable;
+            SelectedItem.StorageStatus = InWarehouse.Udlånt;
             _itemRepo.EditItem(SelectedItem);
         }
 
@@ -137,8 +118,8 @@ namespace GettingReal.ViewModel
             _loanRepo.CompleteLoan(SelectedLoan);
             SelectedLoan.ReturnDate = DateTime.Now;
 
-            var item = _itemRepo.GetById(SelectedLoan.ItemId);
-            item.StorageStatus = InWarehouse.Available;
+            var item = _itemRepo.GetById(SelectedLoan.ItemId.ToString());
+            item.StorageStatus = InWarehouse.Hjemme;
             _itemRepo.EditItem(item);
 
             Refresh();
