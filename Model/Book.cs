@@ -20,7 +20,7 @@ namespace GettingReal.Model
 
         }
 
-        public Book(string itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, string system, string edition)
+        public Book(int? itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, string system, string edition)
             : base(itemId, name, condition, approvalRequirement, storageStatus)
         {
             System = system;
@@ -36,10 +36,7 @@ namespace GettingReal.Model
         //    Edition = edition;
         //    System = system;
         //}
-        public override string GetPrefix()
-        {
-            return "BO";
-        }
+        
         public override string ToString()
         {
             return $" Book,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{System},{Edition}";
@@ -50,7 +47,7 @@ namespace GettingReal.Model
             string[] parts = input.Split(',');
 
             return new Book(
-                itemId: parts[0],
+                itemId: Int32.Parse(parts[0]),
                 name: parts[1],
                 condition: Enum.Parse<Condition>(parts[2]),
                 approvalRequirement: Enum.Parse<NeedsApproval>(parts[3]),

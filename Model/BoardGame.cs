@@ -15,7 +15,7 @@ namespace GettingReal.Model
         public BoardGame() // We MIGHT not need an empty constuctor anylonger, since I figured out how to make the FromString work with a "filled out" constuctor :D
         {
         }   
-        public BoardGame(string itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, string edition, int minPlayers, int maxPlayers)
+        public BoardGame(int? itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus, string edition, int minPlayers, int maxPlayers)
             : base(itemId, name, condition, approvalRequirement, storageStatus)
         {
             Edition = edition;
@@ -30,10 +30,7 @@ namespace GettingReal.Model
         //    MinPlayers = minPlayers;
         //    MaxPlayers = maxPlayers;
         //}
-        public override string GetPrefix()
-        {
-            return "BR";
-        }
+       
         public override string ToString()
         {
             return $"BoardGame,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus}, {Edition}, {MinPlayers}, {MaxPlayers}";
@@ -44,7 +41,7 @@ namespace GettingReal.Model
             string[] parts = input.Split(',');
 
             return new BoardGame(
-                itemId: parts[0],
+                itemId: Int32.Parse(parts[0]),
                 name: parts[1],
                 condition: Enum.Parse<Condition>(parts[2]),
                 approvalRequirement: Enum.Parse<NeedsApproval>(parts[3]),

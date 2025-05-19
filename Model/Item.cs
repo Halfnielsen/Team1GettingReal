@@ -13,7 +13,7 @@ namespace GettingReal.Model
 {
     public abstract class Item
     {
-        public string ItemId { get; protected set; } // I made item into a string, enabling it to contain letters.
+        public int ItemId { get; protected set; } // I made item into a string, enabling it to contain letters.
         public string Name { get; set; }
         public Condition Condition { get; set; }
         public NeedsApproval ApprovalRequirement { get; set; }
@@ -21,13 +21,13 @@ namespace GettingReal.Model
 
         //For Id Generation:
         private static Random _random = new Random();
-        private static HashSet<string> usedItemIds = new HashSet<string>(); 
+        private static HashSet<int> usedItemIds = new HashSet<int>(); 
 
 
 
         public List<Loan> Loan { get; set; } = new();
 
-        public Item(string itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus)
+        public Item(int? itemId, string name, Condition condition, NeedsApproval approvalRequirement, InWarehouse storageStatus)
         {
             ItemId = itemId ?? GenerateUniqueId(); //this gives the item an Id when we make it or just reads it from the file.
             Name = name;
@@ -40,20 +40,14 @@ namespace GettingReal.Model
         {
         }
 
-
-
-        // For Generating ItemId:
-        public abstract string GetPrefix(); //To generate prefix. Forces the sub-classes to fill out custom prefix.
-
-        public string GenerateUniqueId() // Generating random Id with prefix that is defined in the individual sub-classes :o) 
-        {
-            string prefix = GetPrefix();
-            string id;
+        public int GenerateUniqueId() // Generating random Id with prefix that is defined in the individual sub-classes :o) 
+        { 
+            int id;
 
             do
             {
                 int number = _random.Next(1000, 9999); //I think a 4 digit number after the prefix should be sufficient, but if not, we can always change it to: 10000, 99999
-                id = prefix + number.ToString();
+                id = number;
             } while (usedItemIds.Contains(id));
 
             usedItemIds.Add(id);
