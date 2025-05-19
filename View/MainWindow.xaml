@@ -6,7 +6,83 @@
         xmlns:local="clr-namespace:GettingReal"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0" Margin="0 0 0 8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <Button Content="Tilføj genstand"
+                        Command="{Binding AddItemCommand}"
+                        Width="110" Margin="0 0 6 0" />
+
+                <Button Content="Redigér"
+                        Command="{Binding EditItemCommand}"
+                        CommandParameter="{Binding SelectedItem}"
+                        Width="80" Margin="0 0 6 0" />
+
+                <Button Content="Slet"
+                        Command="{Binding DeleteItemCommand}"
+                        CommandParameter="{Binding SelectedItem}"
+                        Width="70" />
+            </StackPanel>
+
+           
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <Button Content="Opret lån"
+                        Command="{Binding CreateLoanCommand}"
+                        Width="90" Margin="0 0 6 0" />
+
+                <Button Content="Afslut lån"
+                        Command="{Binding CompleteLoanCommand}"
+                        Width="90" />
+            </StackPanel>
+        </Grid>
+
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+           
+            <ListView Grid.Column="0"
+                      ItemsSource="{Binding Items}"
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                      Margin="0 0 8 0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding ItemId}" Width="60" />
+                        <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding Name}" Width="200" />
+                        <GridViewColumn Header="Tilstand" DisplayMemberBinding="{Binding Condition}" Width="80" />
+                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding StorageStatus}" Width="90" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+           
+            <ListView Grid.Column="1"
+                      ItemsSource="{Binding Loans}"
+                      SelectedItem="{Binding SelectedLoan, Mode=TwoWay}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="LånId" DisplayMemberBinding="{Binding LoanId}" Width="50" />
+                        <GridViewColumn Header="ItemId" DisplayMemberBinding="{Binding ItemId}" Width="50" />
+                        <GridViewColumn Header="Låner" DisplayMemberBinding="{Binding Loaner}" Width="120" />
+                        <GridViewColumn Header="Lånedato" DisplayMemberBinding="{Binding LoanDate, StringFormat={}{0:dd-MM-yyyy}}" Width="90" />
+                        <GridViewColumn Header="Returneret" DisplayMemberBinding="{Binding ReturnDate, StringFormat={}{0:dd-MM-yyyy}}" Width="90" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
