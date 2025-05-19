@@ -75,7 +75,7 @@ namespace GettingReal.Model.Repositories
             }
         }
 
-        public Item GetById(string itemId)
+        public Item GetById(int itemId)
         {
             return GetAllItems().FirstOrDefault(p => p.ItemId == itemId);
         }

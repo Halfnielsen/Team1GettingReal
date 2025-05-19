@@ -13,7 +13,7 @@ namespace GettingReal.Model
 {
     public abstract class Item
     {
-        public int ItemId { get; protected set; } // I made item into a string, enabling it to contain letters.
+        public int ItemId { get; protected set; } 
         public string Name { get; set; }
         public Condition Condition { get; set; }
         public NeedsApproval ApprovalRequirement { get; set; }
@@ -40,7 +40,7 @@ namespace GettingReal.Model
         {
         }
 
-        public int GenerateUniqueId() // Generating random Id with prefix that is defined in the individual sub-classes :o) 
+        public int GenerateUniqueId() // Generating random unique Id 
         { 
             int id;
 
