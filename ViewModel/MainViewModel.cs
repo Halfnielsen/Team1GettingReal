@@ -1,12 +1,164 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using GettingReal.Model;
+using GettingReal.Model.Repositories;
+using GettingReal.Infrastructure;
 
 namespace GettingReal.ViewModel
-{
-    class MainViewModel
+{   
+    public class MainViewModel : ViewModelBase
     {
+        // Repositories – lige til at udskifte med fil/database senere
+        private readonly MemoryItemRepo _itemRepo = new();
+        private readonly LoanRepo _loanRepo = new();
+
+        //Dummy book for testing
+        public Book NewBook { get; set; } = new();
+
+        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<Loan> Loans { get; }
+
+        /* ---------- Selected-properties til bindings ---------- */
+
+        private Item? _selectedItem;
+        public Item? SelectedItem
+        {
+            get => _selectedItem;
+            set { SetProperty(ref _selectedItem, value); }
+        }
+
+        private Loan? _selectedLoan;
+        public Loan? SelectedLoan
+        {
+            get => _selectedLoan;
+            set { SetProperty(ref _selectedLoan, value); }
+        }
+
+        
+
+        /* ---------- Commands ---------- */
+
+        public ICommand AddItemCommand { get; }
+        public ICommand EditItemCommand { get; }
+        public ICommand DeleteItemCommand { get; }
+        public ICommand CreateLoanCommand { get; }
+        public ICommand CompleteLoanCommand { get; }
+        public ICommand RefreshCommand { get; }
+
+       
+
+        public MainViewModel()
+        {
+            // Fyld collections fra repos
+            Items = new ObservableCollection<Item>(_itemRepo.GetAllItems());
+            Loans = new ObservableCollection<Loan>(_loanRepo.GetAllLoans());
+
+            // Initialiser kommandoer
+
+            AddItemCommand = new RelayCommand(_ => AddDummyBook());
+
+            //AddItemCommand = new RelayCommand(p => AddItem(p as Item));
+            EditItemCommand = new RelayCommand(p => EditItem(p as Item), p => p is Item);
+            DeleteItemCommand = new RelayCommand(p => DeleteItem(p as Item), p => p is Item);
+            CreateLoanCommand = new RelayCommand(_ => CreateLoan(), _ => SelectedItem is { StorageStatus: InWarehouse.Available });
+            CompleteLoanCommand = new RelayCommand(_ => CompleteLoan(), _ => SelectedLoan != null && SelectedLoan.ReturnDate == null);
+            RefreshCommand = new RelayCommand(_ => Refresh());
+        }
+
+        /* ---------- CRUD- og lånelogik ---------- */
+        private void AddDummyBook()
+        {
+            var id = Items.Any() ? Items.Max(i => i.ItemId) + 1 : 1;
+
+            var book = new Book(
+                itemId: id,
+                name: $"Testbog #{id}",
+                condition: Condition.New,
+                approvalRequirement: NeedsApproval.No,
+                storageStatus: InWarehouse.Available,
+                author: "Ukendt",
+                edition: "1.",
+                system: "D&D");
+
+            _itemRepo.AddItem(book);
+            Items.Add(book);
+        }
+        private void AddItem(Item? item)
+        {
+            if (item == null) return;
+
+            _itemRepo.AddItem(item);
+            Items.Add(item);
+        }
+
+        private void EditItem(Item? item)
+        {
+            if (item == null) return;
+
+            _itemRepo.EditItem(item);
+            Refresh();                 
+        }
+
+        private void DeleteItem(Item? item)
+        {
+            if (item == null) return;
+
+            _itemRepo.DeleteItem(item);
+            Items.Remove(item);
+        }
+
+        private void CreateLoan()
+        {
+            if (SelectedItem == null) return;
+
+            var newLoanId = Loans.Any() ? Loans.Max(l => l.LoanId) + 1 : 1;
+
+            var loan = new Loan(
+                loanId: newLoanId,
+                itemId: SelectedItem.ItemId,
+                loaner: "[Indtast navn]",  // til UI-felt
+                loanDate: DateTime.Now);
+
+            _loanRepo.CreateLoan(loan);
+            Loans.Add(loan);
+
+            SelectedItem.StorageStatus = InWarehouse.NotAvailable;
+            _itemRepo.EditItem(SelectedItem);
+        }
+
+        private void CompleteLoan()
+        {
+            if (SelectedLoan == null) return;
+
+            _loanRepo.CompleteLoan(SelectedLoan);
+            SelectedLoan.ReturnDate = DateTime.Now;
+
+            var item = _itemRepo.GetById(SelectedLoan.ItemId);
+            item.StorageStatus = InWarehouse.Available;
+            _itemRepo.EditItem(item);
+
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            // Simpel refresh – rydder og genindlæser fra repos
+            Items.Clear(); 
+            foreach (var item in _itemRepo.GetAllItems()) 
+                Items.Add(item);
+
+            Loans.Clear(); 
+            foreach (var loan in _loanRepo.GetAllLoans()) 
+                Loans.Add(loan);
+        }
+
+       
+
+        
+
     }
 }
