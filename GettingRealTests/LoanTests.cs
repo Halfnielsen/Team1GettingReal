@@ -25,5 +25,30 @@ namespace GettingRealTests
             Assert.IsNotNull(allLoans);
             Assert.AreEqual(loan.LoanId, loan.LoanId, loan.Loaner, loan.LoanDate, loan.ReturnDate, result.LoanId, result.Loaner, result.LoanDate, result.ReturnDate);
         }
+        [TestMethod]
+        public void CompleteLoan_ShouldUpdateReturnDate()
+        {
+            // Arrange
+            var repo = new LoanRepo();
+            var loan = new Loan(1, 1, "Tobias", DateTime.Now, null);
+            repo.CreateLoan(loan);
+            // Act
+            loan.ReturnDate = DateTime.Now;
+            repo.CompleteLoan(loan);
+            var result = repo.GetLoanById(loan.LoanId);
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(loan.ReturnDate, result.ReturnDate);
+        }
+        [TestMethod]
+        public void CreateLoan_ShouldThrowException_WhenLoanAlreadyExists()
+        {
+            // Arrange
+            var repo = new LoanRepo();
+            var loan = new Loan(1, 1, "Tobias", DateTime.Now, null);
+            repo.CreateLoan(loan);
+            // Act & Assert
+            Assert.ThrowsException<InvalidOperationException>(() => repo.CreateLoan(loan));
+        }
     }
 }
