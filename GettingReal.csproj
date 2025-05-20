@@ -16,10 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="View\Fønix logo.png" />
     <None Remove="View\Skærmbillede 2025-05-19 131733.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="View\Fønix logo.png" />
     <Resource Include="View\Skærmbillede 2025-05-19 131733.png" />
   </ItemGroup>
 

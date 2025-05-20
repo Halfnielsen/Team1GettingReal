@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image HorizontalAlignment="Right" Height="50" VerticalAlignment="Center" Width="76" Source="/Fønix logo.png"  />
+        <Image HorizontalAlignment="Right" Height="50" VerticalAlignment="Center" Width="76" Source="/View/Fønix logo.png"  />
         <Label Content="Fønix Lagersystem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="241" FontSize="25" FontWeight="Heavy" Foreground="#dd9933"/>
 
         <Grid Grid.Row="1" >
@@ -195,8 +195,8 @@ AutoGenerateColumns="False" Grid.ColumnSpan="3">
 
         </Grid>
         <!--SearchBar!-->
-        <TextBox Text="{Binding TextToFilter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Margin="437,22,35,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Søg" HorizontalAlignment="Right" Margin="407,19,5,0" VerticalAlignment="Top" Background="White"/>
+        <!--<TextBox Text="{Binding TextToFilter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Margin="437,22,35,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Søg" HorizontalAlignment="Right" Margin="407,19,5,0" VerticalAlignment="Top" Background="White"/>-->
 
 
 
