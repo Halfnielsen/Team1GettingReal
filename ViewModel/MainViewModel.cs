@@ -35,6 +35,20 @@ namespace GettingReal.ViewModel
             set { SetProperty(ref _selectedLoan, value); }
         }
 
+        //--------- Enabling changing "views" ---------
+        private ViewModelBase _selectedViewModel;
+
+        public ViewModelBase SelectedViewModel
+        {
+            get { return _selectedViewModel; }
+            set
+            {
+                _selectedViewModel = value;
+                OnPropertyChanged(nameof(SelectedViewModel));
+            }
+        }
+
+        public ICommand UpdateViewCommand { get; set; }
         
 
         /* ---------- Commands ---------- */
@@ -64,6 +78,7 @@ namespace GettingReal.ViewModel
             CreateLoanCommand = new RelayCommand(_ => CreateLoan(), _ => SelectedItem is { StorageStatus: InWarehouse.Hjemme });
             CompleteLoanCommand = new RelayCommand(_ => CompleteLoan(), _ => SelectedLoan != null && SelectedLoan.ReturnDate == null);
             RefreshCommand = new RelayCommand(_ => Refresh());
+            UpdateViewCommand = new UpdateViewCommand(this); // Added this for making multiple views work.
         }
 
         /* ---------- CRUD- og lånelogik ---------- */

@@ -7,7 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000"
         Background="BlueViolet">
-    <Grid Background="#464D56">
+
+    <Grid Background="Lavender" Margin="0,0,0,0">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Content="{Binding SelectedViewModel}"/>
+
+        <StackPanel Grid.Column="0" Background="#565831">
+
+            <Button Content="Alle" Height="24" Width="100" Margin="0,24,0,0" Command="{Binding UpdateViewCommand}" CommandParameter="Alle"/>
+            <Button Content="Brætspil" Height="24" Width="100" Margin="0,24,0,0" Command="{Binding UpdateViewCommand}" CommandParameter="Brætspil"/>
+            <Button Content="Bøger" Height="24" Width="100" Margin="0,24,0,0" Command="{Binding UpdateViewCommand}" CommandParameter="Bøger"/>
+            <Button Content="Live-Udstyr" Height="24" Width="100" Margin="0,24,0,0" Command="{Binding UpdateViewCommand}" CommandParameter="Live-Udstyr"/>
+
+        </StackPanel>
+        
+
+    </Grid>
+    <!--<Grid Background="#464D56">
         <DockPanel LastChildFill="True">
             <Grid Background="#000000" DockPanel.Dock="Top" Height="70">
                 <Label Margin="0,0,0,0" Content="Lager System" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontFamily="Sitka Heading" FontWeight="Bold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center">
@@ -23,15 +44,17 @@
                 <Label Content="Søg" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Background="FloralWhite" Margin="0,0,105,0"/>
                 <TextBox HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="100" Margin="0,0,5,0"/>
             </Grid>
+            <ContentControl Content="{Binding SelectedViewModel}"/>
             <StackPanel Background="Green" Margin="0,0,0,0" HorizontalAlignment="Left"  Width="100" >
                 <Button Content="Alle" Height="30" Margin="0,80,0,10"/>
-                <Button Content="Brætspil" Height="30" Margin="0,0,0,10"/>
-                <Button Content="Bøger" Height="30" Margin="0,0,0,10"/>
-                <Button Content="Live-Udstyr" Height="30" Margin="0,0,0,10"/>
+                <Button Content="Brætspil" Height="30" Margin="0,0,0,10" Command="{Binding UpdateViewCommand}" CommandParameter="Brætspil"/>
+                <Button Content="Bøger" Height="30" Margin="0,0,0,10" Command="{Binding UpdateViewCommand}" CommandParameter="Bøger"/>
+                <Button Content="Live-Udstyr" Height="30" Margin="0,0,0,10"  Command="{Binding UpdateViewCommand}" CommandParameter="Live-Udstyr"/>
 
 
 
             </StackPanel>
+            <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}"/>
             <TextBox TextWrapping="Wrap" Text="Ikke færdigt udseende :D Har bare fået sat vores ting lidt op, så jeg kan arbejde videre med det i morgen." Width="150" VerticalAlignment="Center"/>
 
 
@@ -40,5 +63,5 @@
 
 
         </DockPanel>
-    </Grid>
+    </Grid>-->
 </Window>

@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Background="#657C6A">
     <Grid>
-            
+        <Label Content="Brætspil" HorizontalAlignment="Left" Margin="425,0,0,0" VerticalAlignment="Center"/>
+
     </Grid>
 </UserControl>

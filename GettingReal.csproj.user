@@ -8,9 +8,6 @@
     <Compile Update="View\UserControls\BookUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\UserControls\ItemUC.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\UserControls\LiveEquipmentUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
