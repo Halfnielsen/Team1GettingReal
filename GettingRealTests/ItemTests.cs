@@ -35,19 +35,6 @@ public class ItemTests
         // Assert
         Assert.AreEqual("Updated", result.Name);
     }
-
-    [TestMethod]
-    public void AddItem_ShouldNotAllowDuplicateIds()
-    {
-        // Arrange
-        var repo = new MemoryItemRepo();
-        var item1 = new Book(1, "Book1", Condition.Ny, NeedsApproval.Nej, InWarehouse.Hjemme, "Author", "1st");
-        var item2 = new Book(1, "Book2", Condition.Brugt, NeedsApproval.Nej, InWarehouse.Hjemme, "Author", "2nd");
-        // Act
-        repo.AddItem(item1);
-        // Assert
-        Assert.ThrowsException<ArgumentException>(() => repo.AddItem(item2));
-    }
     [TestMethod]
     public void DeleteItem_ShouldRemoveItem()
     {
@@ -85,9 +72,36 @@ public class ItemTests
         Assert.AreEqual(0, allItems.Count());
     }
     [TestMethod]
+    public void AddItem_ShouldNotAllowDuplicateIds()
+    {
+        // Arrange
+        var repo = new MemoryItemRepo();
+        var item1 = new Book(1, "Book1", Condition.Ny, NeedsApproval.Nej, InWarehouse.Hjemme, "Author", "1st");
+        var item2 = new Book(1, "Book2", Condition.Brugt, NeedsApproval.Nej, InWarehouse.Hjemme, "Author", "2nd");
+        // Act
+        repo.AddItem(item1);
+        // Assert
+        Assert.ThrowsException<ArgumentException>(() => repo.AddItem(item2));
+    }
+    [TestMethod]
     public void GetById_ShouldThrowException_WhenItemNotFound()
     {
+        // Arrange
         var repo = new MemoryItemRepo();
+        // Act & Assert
         Assert.ThrowsException<Exception>(() => repo.GetById(999));
+    }
+
+    [TestMethod]
+    public void AddItem_ShouldThrowException_WhenItemAlreadyExists()
+    {
+        // Arrange
+        var repo = new MemoryItemRepo();
+        var item1 = new Book(1, "Book1", Condition.Ny, NeedsApproval.Nej, InWarehouse.Hjemme, "Author", "1st");
+        var item2 = new Book(1, "Book2", Condition.Brugt, NeedsApproval.Ja, InWarehouse.Hjemme, "Author", "2nd");
+        repo.AddItem(item1);
+
+        // Act & Assert
+        Assert.ThrowsException<ArgumentException>(() => repo.AddItem(item2));
     }
 }
