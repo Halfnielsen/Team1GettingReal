@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GettingReal.Infrastructure.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GettingReal.Model.Repositories.FileItemRepo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAEAAAAAAAAAQACAAAAgEAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Model\Repositories\FileItemRepo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GettingReal.Model.Repositories.LoanRepo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAQAAAAAAQAACAAACAAAA=</HashCode>
+      <FileName>Model\Repositories\LoanRepo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GettingReal.Model.Repositories.MemoryItemRepo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAEAAAAAAAAAQgAAAAAgEAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Model\Repositories\MemoryItemRepo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GettingReal.Model.BoardGame" Collapsed="true">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAgAQAAACAA=</HashCode>
+      <FileName>Model\BoardGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GettingReal.Model.Book" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEEAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Model\Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GettingReal.Model.Item" Collapsed="true">
+    <Position X="3.75" Y="1.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAgAAAACAAAAkkAAAAAQAAAAAAAAAACAAAAAAAAE=</HashCode>
+      <FileName>Model\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GettingReal.Model.LiveEquipment" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAEEAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\LiveEquipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GettingReal.Model.Loan" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAABAAAAAAEgAAAAAAAQAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Model\Loan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GettingReal.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GettingReal.App" Collapsed="true">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GettingReal.ViewModel.MainViewModel" Collapsed="true">
+    <Position X="16.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAIAIEABBACAAggQAAAAACoQAAgAAAABCAEAgAAgA=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GettingReal.ViewModel.ViewModelBase" Collapsed="true">
+    <Position X="16.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="GettingReal.Model.Interfaces.IItemRepo" Collapsed="true">
+    <Position X="10" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAEAAAAAAAAAQAAAAAAgEAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Model\Interfaces\IItemRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GettingReal.Model.Interfaces.ILoanRepo" Collapsed="true">
+    <Position X="11.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAACAAACAAAA=</HashCode>
+      <FileName>Model\Interfaces\ILoanRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GettingReal.Model.Condition" Collapsed="true">
+    <Position X="3.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAACAEAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GettingReal.Model.NeedsApproval" Collapsed="true">
+    <Position X="3.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GettingReal.Model.InWarehouse" Collapsed="true">
+    <Position X="7" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GettingReal.Model.EquipmentType" Collapsed="true">
+    <Position X="5.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgQAIAAAAAAAAQAAAAAIQAAAAAAAAA=</HashCode>
+      <FileName>Model\LiveEquipment.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

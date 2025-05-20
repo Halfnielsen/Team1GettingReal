@@ -13,7 +13,7 @@ namespace GettingReal.ViewModel
     public class MainViewModel : ViewModelBase
     {
         // Repositories – lige til at udskifte med fil/database senere
-        private readonly MemoryItemRepo _itemRepo = new();
+        private readonly FileItemRepo _itemRepo = new("items.txt");
         private readonly LoanRepo _loanRepo = new();       
 
         public ObservableCollection<Item> Items { get; }
@@ -118,7 +118,7 @@ namespace GettingReal.ViewModel
             _loanRepo.CompleteLoan(SelectedLoan);
             SelectedLoan.ReturnDate = DateTime.Now;
 
-            var item = _itemRepo.GetById(SelectedLoan.ItemId.ToString());
+            var item = _itemRepo.GetById(SelectedLoan.ItemId);
             item.StorageStatus = InWarehouse.Hjemme;
             _itemRepo.EditItem(item);
 
