@@ -40,5 +40,15 @@ namespace GettingRealTests
             Assert.IsNotNull(result);
             Assert.AreEqual(loan.ReturnDate, result.ReturnDate);
         }
+        [TestMethod]
+        public void CreateLoan_ShouldThrowException_WhenLoanAlreadyExists()
+        {
+            // Arrange
+            var repo = new LoanRepo();
+            var loan = new Loan(1, 1, "Tobias", DateTime.Now, null);
+            repo.CreateLoan(loan);
+            // Act & Assert
+            Assert.ThrowsException<InvalidOperationException>(() => repo.CreateLoan(loan));
+        }
     }
 }
