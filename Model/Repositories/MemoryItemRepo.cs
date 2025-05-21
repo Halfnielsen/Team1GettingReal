@@ -11,7 +11,7 @@ namespace GettingReal.Model.Repositories
     {
         //Memory list for items
         public List<Item> items = new List<Item>();
-
+/*
         public MemoryItemRepo()
         {
             //Redigere evt. ID, når IdGenerator er klar. :)
@@ -39,7 +39,7 @@ namespace GettingReal.Model.Repositories
             LiveEquipment equipment2 = new LiveEquipment(920, "Gladius", Condition.Ny, NeedsApproval.Ja, InWarehouse.Hjemme, EquipmentType.Våben, "Non-FiR");
             items.Add(equipment2);
         }
-
+*/
         //Add item to list
         public void AddItem(Item item)
         {

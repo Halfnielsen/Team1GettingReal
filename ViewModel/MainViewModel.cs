@@ -14,7 +14,7 @@ namespace GettingReal.ViewModel
     public class MainViewModel : ViewModelBase
     {
         // Repositories – lige til at udskifte med fil/database senere
-        private readonly MemoryItemRepo _itemRepo = new();
+        private readonly FileItemRepo _itemRepo = new("items.txt");
         private readonly LoanRepo _loanRepo = new();       
 
         public ObservableCollection<Item> Items { get; }
