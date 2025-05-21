@@ -62,10 +62,10 @@ Background="Honeydew"/>
                 <!--Knapper fra siden-->
                 <Button Content="Tilføj" Width="75" Height="30" Margin="0,30,5,0" Background="AliceBlue"
         Command="{Binding AddItemCommand}"/>
+                <Button Content="Rediger" Width="75" Height="30" Margin="0,0,5,0" Background="AliceBlue"
+        Command="{Binding EditItemCommand}"/>
                 <Button Content="Slet" Width="75" Height="30" Margin="0,0,5,0" Background="AliceBlue"
         Command="{Binding DeleteItemCommand}"/>
-                <Button Content="Gem" Width="75" Height="30" Margin="0,0,5,0" Background="AliceBlue"
-        Command="{Binding SaveCommand}"/>
             </StackPanel>
 
             <!--Tabs starter her-->
