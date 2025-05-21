@@ -86,13 +86,13 @@ namespace GettingReal.Model
 
     public enum NeedsApproval
     {
-        Ja,
+        Ja, //Hedder "Skal Godkendendes" i OM
         Nej
     }
 
     public enum InWarehouse
     {
-        Hjemme,
+        Hjemme, //Hedder "På Lager" i OM
         Udlånt
        
     }

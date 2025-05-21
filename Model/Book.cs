@@ -24,7 +24,7 @@ namespace GettingReal.Model
             : base(itemId, name, condition, approvalRequirement, storageStatus)
         {
             System = system;
-            Edition = edition;
+            Edition = edition; //Er ikke helt sikker på om der mangler noget i forhold til OM
             
         }
 
