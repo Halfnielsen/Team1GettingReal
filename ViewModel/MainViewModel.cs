@@ -7,6 +7,7 @@ using System.Windows.Input;
 using GettingReal.Model;
 using GettingReal.Model.Repositories;
 using GettingReal.Infrastructure;
+using GettingReal.View.UserControls;
 
 namespace GettingReal.ViewModel
 {   
@@ -18,6 +19,14 @@ namespace GettingReal.ViewModel
 
         public ObservableCollection<Item> Items { get; }
         public ObservableCollection<Loan> Loans { get; }
+
+        // For at filtere listerne:
+        public ObservableCollection<BoardGame> BoardGameOnly =>
+    new ObservableCollection<BoardGame>(Items.OfType<BoardGame>());
+        public ObservableCollection<Book> BookOnly =>
+    new ObservableCollection<Book>(Items.OfType<Book>());
+        public ObservableCollection<LiveEquipment> LiveEquipmentOnly =>
+   new ObservableCollection<LiveEquipment>(Items.OfType<LiveEquipment>());
 
         /* ---------- Selected-properties til bindings ---------- */
 
