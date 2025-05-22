@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Image HorizontalAlignment="Right" Height="50" VerticalAlignment="Center" Width="76" Source="/View/Fønix logo.png"  />
-        <Label Content="Fønix Lagersystem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="241" FontSize="25" FontWeight="Heavy" Foreground="#dd9933"/>
+        <Label Content="Føniks Lagersystem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="241" FontSize="25" FontWeight="Heavy" Foreground="#dd9933"/>
 
         <Grid Grid.Row="1" >
 
