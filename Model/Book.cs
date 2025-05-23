@@ -40,7 +40,7 @@ namespace GettingReal.Model
 
         public override string ToString()
         {
-            return $" Book,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{System},{Edition}";
+            return $"Book,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{System},{Edition}";
         }
 
         public override Item FromString(string input)

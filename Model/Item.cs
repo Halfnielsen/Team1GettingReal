@@ -87,7 +87,7 @@ namespace GettingReal.Model
     public enum NeedsApproval
     {
         Ja, //Hedder "Skal Godkendendes" i OM
-        Nej
+        Nej // Hedder "Fri Leje" i OM
     }
 
     public enum InWarehouse

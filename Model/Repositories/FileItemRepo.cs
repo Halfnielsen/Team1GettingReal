@@ -43,12 +43,26 @@ namespace GettingReal.Model.Repositories
         {
             List<Item> items = GetAllItems().ToList();
             items.RemoveAll(p => p.ItemId == item.ItemId);
-            EditItem(item);
+            // EditItem(item);
+            File.WriteAllLines(_filePath, items.Select(p => p.ToString()));
         }
 
         public void EditItem(Item editItem)
         {
             List<Item> items = GetAllItems().ToList();
+
+            // Find item med samme ID og erstat det
+            var index = items.FindIndex(i => i.ItemId == editItem.ItemId);
+            if (index != -1)
+            {
+                items[index] = editItem; // Erstat med den opdaterede version
+            }
+            else
+            {
+                throw new Exception("Item blev ikke fundet og kunne ikke redigeres.");
+            }
+
+            // Skriv hele listen tilbage til filen
             try
             {
                 File.WriteAllLines(_filePath, items.Select(p => p.ToString()));

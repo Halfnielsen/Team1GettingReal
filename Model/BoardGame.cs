@@ -35,7 +35,7 @@ namespace GettingReal.Model
 
         public override string ToString()
         {
-            return $"BoardGame,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus}, {Edition}, {MinPlayers}, {MaxPlayers}";
+            return $"BoardGame,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{Edition},{MinPlayers},{MaxPlayers}";
         }
 
         public override Item FromString(string input)
