@@ -21,6 +21,21 @@ namespace GettingReal.Tests
         }
 
         [TestMethod]
+        public void CreateLoanCommand_ShouldNotAllowSecondLoan_OnAlreadyBorrowedItem()
+        {
+            var vm = new MainViewModel();
+            var item = CreateSampleItem();
+            vm.AddItemCommand.Execute(item);
+            vm.SelectedItem = item;
+
+            // Første lån — OK
+            vm.CreateLoanCommand.Execute(null);
+
+            // Prøv igen på samme genstand
+            Assert.IsFalse(vm.CreateLoanCommand.CanExecute(null));   // eller forvent en exception
+        }
+
+        [TestMethod]
         public void AddItemCommand_ShouldAddItemToCollectionAndRepo()
         {
             var vm = new MainViewModel();
@@ -102,5 +117,7 @@ namespace GettingReal.Tests
 
             Assert.IsTrue(eventRaised);
         }
+
+
     }
 }

@@ -35,7 +35,7 @@ namespace GettingReal.Model
        
         public override string ToString()
         {
-            return $"{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{Type},{Owner}";
+            return $"LiveEquipment,{ItemId},{Name},{Condition},{ApprovalRequirement},{StorageStatus},{Type},{Owner}";
         }
 
         public override Item FromString(string input)
@@ -48,8 +48,8 @@ namespace GettingReal.Model
                 condition: Enum.Parse<Condition>(parts[2]),
                 approvalRequirement: Enum.Parse<NeedsApproval>(parts[3]),
                 storageStatus: Enum.Parse<InWarehouse>(parts[4]),
-                type: Enum.Parse<EquipmentType>(parts[4]),
-                owner: parts[5]
+                type: Enum.Parse<EquipmentType>(parts[5]),
+                owner: parts[6]
                 
             );
 

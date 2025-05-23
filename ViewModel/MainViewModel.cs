@@ -36,6 +36,7 @@ namespace GettingReal.ViewModel
             get => _selectedItem;
             set { SetProperty(ref _selectedItem, value); }
         }
+        
 
         private Loan? _selectedLoan;
         public Loan? SelectedLoan
@@ -44,18 +45,20 @@ namespace GettingReal.ViewModel
             set { SetProperty(ref _selectedLoan, value); }
         }
 
-        
+
 
         /* ---------- Commands ---------- */
 
-        public ICommand AddItemCommand { get; }
+        //public ICommand AddItemCommand { get; }
         public ICommand EditItemCommand { get; }
         public ICommand DeleteItemCommand { get; }
         public ICommand CreateLoanCommand { get; }
         public ICommand CompleteLoanCommand { get; }
         public ICommand RefreshCommand { get; }
 
-       
+        public RelayCommand AddItemCommand => new RelayCommand(execute => AddItem());
+       // public RelayCommand AddItemCommand => new RelayCommand(execute => AddItem(execute as Item), canExecute => true);
+
 
         public MainViewModel()
         {
@@ -65,9 +68,8 @@ namespace GettingReal.ViewModel
 
             // Initialiser kommandoer
 
-            
-
-            AddItemCommand = new RelayCommand(p => AddItem(p as Item));
+            //AddItemCommand = new RelayCommand(_ => AddItem());
+            //AddItemCommand = new RelayCommand(p => AddItem(p as Item));
             EditItemCommand = new RelayCommand(p => EditItem(p as Item), p => p is Item);
             DeleteItemCommand = new RelayCommand(p => DeleteItem(p as Item), p => p is Item);
             CreateLoanCommand = new RelayCommand(_ => CreateLoan(), _ => SelectedItem is { StorageStatus: InWarehouse.Hjemme });
@@ -76,15 +78,47 @@ namespace GettingReal.ViewModel
         }
 
         /* ---------- CRUD- og lånelogik ---------- */
-     
-        private void AddItem(Item? item)
+
+        private void AddItem()
         {
-            if (item == null) return;
+            var newId = Items.Any() ? Items.Max(i => i.ItemId) + 1 : 1;
+
+            var item = new Book(
+                itemId: newId,
+                name: "[Nyt navn]",
+                condition: Condition.Ny,
+                approvalRequirement: NeedsApproval.Nej,
+                storageStatus: InWarehouse.Hjemme,
+                system: "[System]",
+                edition: "[Udgave]"
+            );
 
             _itemRepo.AddItem(item);
             Items.Add(item);
         }
+        /*
+        private void AddItem(Item? item)
+        {
+            if (item == null)
+            {
+                var newId = Items.Any() ? Items.Max(i => i.ItemId) + 1 : 1;
 
+                item = new Book(
+                    itemId: newId,
+                    name: "[Nyt navn]",
+                    condition: Condition.Ny,
+                    approvalRequirement: NeedsApproval.Nej,
+                    storageStatus: InWarehouse.Hjemme,
+                    system: "[System]",
+                    edition: "[Udgave]"
+                );
+            }
+
+            //if (item == null) return;
+            _itemRepo.AddItem(item);
+            Items.Add(item);
+        }
+        */
         private void EditItem(Item? item)
         {
             if (item == null) return;

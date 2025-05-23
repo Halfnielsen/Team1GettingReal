@@ -29,4 +29,5 @@ namespace GettingReal.Infrastructure
             remove { CommandManager.RequerySuggested -= value; }
         }
     }
+   
 }

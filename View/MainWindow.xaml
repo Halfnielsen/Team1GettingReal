@@ -61,11 +61,11 @@ Background="Honeydew"/>
 
                 <!--Knapper fra siden-->
                 <Button Content="Tilføj" Width="75" Height="30" Margin="0,30,5,0" Background="AliceBlue"
-        Command="{Binding AddItemCommand}"/>
-                <Button Content="Rediger" Width="75" Height="30" Margin="0,0,5,0" Background="AliceBlue"
-        Command="{Binding EditItemCommand}"/>
+        Command="{Binding AddItemCommand}" CommandParameter="{Binding SelectedItem}"/>
+                <Button Content="Gem" Width="75" Height="30" Margin="0,0,5,0" Background="AliceBlue"
+        Command="{Binding EditItemCommand}" CommandParameter="{Binding SelectedItem}"/>
                 <Button Content="Slet" Width="75" Height="30" Margin="0,0,5,0" Background="AliceBlue"
-        Command="{Binding DeleteItemCommand}"/>
+        Command="{Binding DeleteItemCommand}" CommandParameter="{Binding SelectedItem}"/>
             </StackPanel>
 
             <!--Tabs starter her-->
